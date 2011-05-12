@@ -6,7 +6,8 @@
 "                                                               "
 "                                                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
- 
+" Turn on line numbers
+set number 
 " Hightlight the ifs and buts
 syntax on
  
