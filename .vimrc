@@ -6,6 +6,12 @@
 "                                                               "
 "                                                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tabbing stuff
+nmap <A-Left> :tabp<CR>
+nmap <A-Right> :tabn<CR>
+" Open a new tab
+nmap <A-Up> :tabe 
+
 " Turn on line numbers
 set number 
 " Hightlight the ifs and buts
