@@ -1,1 +1,701 @@
 This is my own vim setup with plugins. The .vimrc file needs moving to user home before use.
+
+From original article at http://hameedullah.com/howto-setup-vim-ide-for-php-development.html
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html
+xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US"><head
+profile="http://gmpg.org/xfn/11"><link
+rel='stylesheet' href='http://pluginfiles.hameedullah.com/wp-content/plugins/wp-minify/min/?f=wp-content/themes/h/style.css,fancybox/jquery.fancybox-1.3.4.css,wp-content/plugins/contact-form-7/styles.css,wp-content/plugins/wp-greet-box/css/style.css,wp-content/plugins/commentluv/style/cl_style.css,wp-content/plugins/wp-syntax/wp-syntax.css&amp;m=1299565871' type='text/css' media='screen' /> <script type='text/javascript' src='http://pluginfiles.hameedullah.com/wp-content/plugins/wp-minify/min/?f=wp-includes/js/l10n.js,wp-includes/js/jquery/jquery.js,wp-includes/js/hoverIntent.js,wp-content/plugins/commentluv/js/commentluv.js,wp-includes/js/comment-reply.js,wp-content/plugins/wp-greet-box/js/functions.js,wp-content/plugins/wp-greet-box/js/js-mode.js,js/jquery.min.js,js/supersubs.js,js/superfish.js,js/jquery.cycle.js,js/jquery.lavalamp.1.3.2-min.js,js/share.js,fancybox/jquery.fancybox-1.3.4.pack.js,wp-content/plugins/contact-form-7/jquery.form.js,wp-content/plugins/contact-form-7/scripts.js&amp;m=1303919851'></script> <meta
+http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Howto Setup Vim IDE for PHP Development - Hameedullah</title><link
+rel="alternate" type="application/rss+xml" title="Hameedullah RSS Feed" href="http://hameedullah.com/feed" /><link
+rel="alternate" type="application/atom+xml" title="Hameedullah Atom Feed" href="http://hameedullah.com/feed/atom" /><link
+rel="pingback" href="http://hameedullah.com/xmlrpc.php" /> <script type="text/javascript">//
+	// Google Analytics for WordPress by Yoast v4.06 | http://yoast.com/wordpress/google-analytics/
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount','UA-9903690-1']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	// End of Google Analytics for WordPress by Yoast v4.0
+	//</script> <link
+rel="alternate" type="application/rss+xml" title="Hameedullah &raquo; Howto Setup Vim IDE for PHP Development Comments Feed" href="http://hameedullah.com/howto-setup-vim-ide-for-php-development.html/feed" /> <script type='text/javascript'>/*  */
+var cl_settings = {
+	name: "author",
+	url: "url",
+	comment: "comment",
+	email: "email",
+	prepend: "",
+	badge: "http://pluginfiles.hameedullah.com/wp-content/plugins/commentluv/images/CL91_White.gif",
+	show_text: "CommentLuv Enabled",
+	badge_text: "",
+	heart_tip: "on",
+	default_on: "checked",
+	select_text: "choose a different post to show",
+	cl_version: "281.5",
+	images: "http://pluginfiles.hameedullah.com/wp-content/plugins/commentluv/images/",
+	api_url: "http://api.comluv.com/cl_api/commentluvapi.php",
+	refer: "http://hameedullah.com/howto-setup-vim-ide-for-php-development.html",
+	infoback: "white",
+	usetemplate: ""
+};
+/*  */</script> <link
+rel="EditURI" type="application/rsd+xml" title="RSD" href="http://hameedullah.com/xmlrpc.php?rsd" /><link
+rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://hameedullah.com/wp-includes/wlwmanifest.xml" /><link
+rel='index' title='Hameedullah' href='http://hameedullah.com' /><link
+rel='start' title='For all of you Django developers tighten your seat belts for DjangoDash' href='http://hameedullah.com/for-all-of-you-django-developers-tighten-your-seat-belts-for-djangodash.html' /><link
+rel='prev' title='Develop Your First Android Application in Python' href='http://hameedullah.com/develop-your-first-android-application-in-python.html' /><meta
+name="generator" content="WordPress 3.1.2" /><link
+rel='shortlink' href='http://wp.me/pBjDX-bN' /><meta
+name="description" content="As a PHP developer one has quiet a lot of choices of IDE. Some are graphical will built-in features like debugging, code completion, auto indentation, syntax" /><meta
+name="keywords" content="development,php,vim,vim scripts" /><link
+rel="canonical" href="http://hameedullah.com/howto-setup-vim-ide-for-php-development.html" />  <script type="text/javascript">//
+var _wpcf7 = { cached: 1 };
+//</script> <meta
+http-equiv="X-XRDS-Location" content="http://hameedullah.com/?xrds" /><meta
+http-equiv="X-Yadis-Location" content="http://hameedullah.com/?xrds" /> <style type="text/css" media="screen">.editComment, .editableComment, .textComment{
+	display: inline;
+}
+.comment-childs{
+	border: 1px solid #999;
+	margin: 5px 2px 2px 4px;
+	padding: 4px 2px 2px 4px;
+	background-color: white;
+}
+.chalt{
+	background-color: #E2E2E2;
+}
+#newcomment{
+	border:1px dashed #777;width:90%;
+}
+#newcommentsubmit{
+	color:red;
+}
+.adminreplycomment{
+	border:1px dashed #777;
+	width:99%;
+	margin:4px;
+	padding:4px;
+}
+.mvccls{
+	color: #999;
+}</style><link
+rel="openid.server" href="http://www.myopenid.com/server"><link
+rel="openid.delegate" href="http://hameedullah.myopenid.com/"><link
+rel="openid2.provider openid.server" href="http://www.myopenid.com/server" /><link
+rel="openid2.local_id openid.delegate" href="http://hameedullah.myopenid.com/" /><meta
+http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=hameedullah.myopenid.com" /></head><body><div></div><div
+id="base"><div
+id="header"><div
+id="pagemenu"><ul
+class="sf-menu"><li><a
+href="http://hameedullah.com">Home</a></li><li
+class="page_item page-item-2"><a
+href="http://hameedullah.com/about" >About Hameedullah</a></li><li
+class="page_item page-item-125"><a
+href="http://hameedullah.com/contact" >Contact</a></li><li
+class="page_item page-item-14"><a
+href="http://hameedullah.com/rails-21-tutorials" >Rails 2.1 Tutorials</a></li><li
+class="page_item page-item-179"><a
+href="http://hameedullah.com/wordpress" >WordPress</a><ul
+class='children'><li
+class="page_item page-item-707"><a
+href="http://hameedullah.com/wordpress/wpgoogl" >WP Goo.gl WordPress Plugin</a></li><li
+class="page_item page-item-553"><a
+href="http://hameedullah.com/wordpress/wpbuzzer" >WPBuzzer</a></li></ul></li><li
+class="rss" style="float:right; "><a
+href="#">COMMENT</a></li><li
+class="rss" style="float:right; "><a
+href="#">POST</a></li></ul></div><div
+id="branding"><div
+class="branding-wrap container_12 clearfix"><div
+class="logo left"><a
+href="http://hameedullah.com"><img
+src="http://static.hameedullah.com/wp-content/themes/h/images/logo.png" border="0" width="300" height="60" /></a><br
+/>Views, Thoughts, Rants, Suggestions on everything</div><div
+class="top-socialad right"> <a
+href="/feed/" title="Subscribe to RSS Feed"><img
+class="socialmedia" src="http://static.hameedullah.com/wp-content/themes/h/images/media3/rss.png" border="0" alt="RSS Feed" width="32" height="32" /></a> <a
+href="http://twitter.com/hameedullah" title="Follow me on twitter"><img
+class="socialmedia" src="http://static.hameedullah.com/wp-content/themes/h/images/media3/twitter.png" border="0" alt="Follow on twitter" width="32" height="32" /></a> <a
+href="http://facebook.com/hameedullah" title="Connect on Facebook"><img
+class="socialmedia" src="http://static.hameedullah.com/wp-content/themes/h/images/media3/facebook.png" border="0" alt="Connect on Facebook" width="32" height="32" /></a> <a
+href="http://pk.linkedin.com/in/hameedullahkhan" title="Connect on LinkedIn"><img
+class="socialmedia" src="http://static.hameedullah.com/wp-content/themes/h/images/media3/linkedin.png" border="0" alt="Connect on digg" width="32" height="32" /></a></div></div></div><div
+id="categorymenu"><ul
+class="sf-menu"><li
+class="cat-item cat-item-101"><a
+href="http://hameedullah.com/category/amazon-web-services" >Amazon Web Services</a></li><li
+class="cat-item cat-item-95"><a
+href="http://hameedullah.com/category/apple" >Apple</a><ul
+class='children'><li
+class="cat-item cat-item-141"><a
+href="http://hameedullah.com/category/apple/ipad-apple" >iPad</a></li></ul></li><li
+class="cat-item cat-item-43"><a
+href="http://hameedullah.com/category/blogging" >Blogging</a></li><li
+class="cat-item cat-item-11"><a
+href="http://hameedullah.com/category/facebook" >Facebook</a></li><li
+class="cat-item cat-item-21"><a
+href="http://hameedullah.com/category/google" >Google</a><ul
+class='children'><li
+class="cat-item cat-item-114"><a
+href="http://hameedullah.com/category/google/buzz" >Buzz</a></li></ul></li><li
+class="cat-item cat-item-153"><a
+href="http://hameedullah.com/category/programming-web-development" >Programming &amp; Web Development</a><ul
+class='children'><li
+class="cat-item cat-item-203"><a
+href="http://hameedullah.com/category/programming-web-development/android" >Android</a></li><li
+class="cat-item cat-item-155"><a
+href="http://hameedullah.com/category/programming-web-development/django" >Django</a></li><li
+class="cat-item cat-item-156"><a
+href="http://hameedullah.com/category/programming-web-development/google-app-engine" >Google App Engine</a></li><li
+class="cat-item cat-item-194"><a
+href="http://hameedullah.com/category/programming-web-development/html-5" >Html 5</a></li><li
+class="cat-item cat-item-157"><a
+href="http://hameedullah.com/category/programming-web-development/oauth" >OAuth</a></li><li
+class="cat-item cat-item-148"><a
+href="http://hameedullah.com/category/programming-web-development/php-programming" >PHP</a></li><li
+class="cat-item cat-item-151"><a
+href="http://hameedullah.com/category/programming-web-development/python" >Python</a></li><li
+class="cat-item cat-item-158"><a
+href="http://hameedullah.com/category/programming-web-development/rails" >Rails</a></li><li
+class="cat-item cat-item-159"><a
+href="http://hameedullah.com/category/programming-web-development/ruby" >Ruby</a></li><li
+class="cat-item cat-item-31"><a
+href="http://hameedullah.com/category/programming-web-development/wordpress" >Wordpress</a></li></ul></li><li
+class="cat-item cat-item-15"><a
+href="http://hameedullah.com/category/twitter" >Twitter</a></li></ul></div><div
+class="shadowline"></div></div><div
+id="main" class="container_12 clearfix"><div
+id="posts" class="grid_8"> <script type="text/javascript">google_ad_client = "ca-pub-7200694027328827";
+/* Hameedullahtoplinnks */
+google_ad_slot = "0467856217";
+google_ad_width = 468;
+google_ad_height = 15;</script> <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script> <div
+id="breadcrumb"><strong>You are here: </strong><a
+href="http://hameedullah.com">Home</a> &raquo; <a
+href="http://hameedullah.com/category/programming-web-development" title="View all posts in Programming &amp; Web Development">Programming &amp; Web Development</a> &raquo; <a
+href="http://hameedullah.com/category/programming-web-development/php-programming" title="View all posts in PHP">PHP</a> &raquo; Howto Setup Vim IDE for PHP Development</div><div
+class="post single"><div
+class="post-head clearfix"><h1 class="post-title left"><a
+href="http://hameedullah.com/howto-setup-vim-ide-for-php-development.html" title="Continue reading &quot;Howto Setup Vim IDE for PHP Development&quot;">Howto Setup Vim IDE for PHP Development</a></h1> <span
+class="post-date right">May 11th, 2011</span></div><div
+class="post-image"> <img
+src="http://static.hameedullah.com/wp-content/themes/h/timthumb.php?src=http://static.hameedullah.com/wp-content/uploads/2011/01/vim-php-ide-1024x578.png&amp;w=598&amp;h=280&amp;zc=1" border="0" alt="Howto Setup Vim IDE for PHP Development" width="598" height="280" /></div> <iframe
+src="http://www.facebook.com/plugins/like.php?href=http://hameedullah.com/howto-setup-vim-ide-for-php-development.html&layout=button_count&show_faces=false&width=100&action=like&colorscheme=light" scrolling="no" frameborder="0"  allowTransparency="true" style="border:none; overflow:hidden; width:80px; height:40px; float: left;"></iframe><div
+id="share"><div
+id="small-buttons"> <script type="text/javascript">(function() {
+							var s = document.createElement("SCRIPT"), s1 = document.getElementsByTagName("SCRIPT")[0];
+							s.type = "text/javascript";
+							s.async = true;
+							s.src = "http://widgets.digg.com/buttons.js";
+							s1.parentNode.insertBefore(s, s1);
+							})();</script> <div><a
+name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></div><div><a
+href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div><div><a
+class="DiggThisButton DiggCompact"></a></div><div><script src="http://www.stumbleupon.com/hostedbadge.php?s=1"></script></div></div><div
+id="large-buttons"><div> <a
+name="fb_share" type="box_count" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script> </div><div
+class="twitter-button"> <a
+href="http://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> </div><div><a
+class="DiggThisButton DiggMedium"></a></div><div><script src="http://www.stumbleupon.com/hostedbadge.php?s=2"></script></div><div><div
+class="wpbuzzer_button" style=""><a
+title="Post on Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-button" data-url="http://hameedullah.com/howto-setup-vim-ide-for-php-development.html" data-imageurl="http://static.hameedullah.com/wp-content/uploads/2011/01/vim-php-ide-300x169.png"></a><script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script></div></div></div></div><div
+class="clear"></div><div
+class="post-content"><div
+id="greet_block"><noscript><div
+class="greet_block wpgb_cornered"><div
+class="greet_text"><div
+class="greet_image"><a
+href="http://hameedullah.com/feed/"  rel="nofollow"><img
+src="http://hameedullah.com/wp-content/plugins/wp-greet-box/images/rss_icon.png" alt="WP Greet Box icon"/></a></div>Dear reader! If you are new here, you might want to <a
+href="http://hameedullah.com/feed/" rel="nofollow"><strong>subscribe to the RSS feed</strong></a> to stay updated or you can <a
+href="http://twitter.com/hameedullah" rel="nofollow"><strong>follow me</strong></a> on twitter <a
+href="http://twitter.com/hameedullah" rel="nofollow">@hameedullah</a>.<div
+style="clear:both"></div></div></div></noscript></div><p>As a PHP developer one has quiet a lot of choices of IDE. Some are graphical will built-in features like debugging, code completion, auto indentation, syntax highlighting, code checking and many more. But those IDEs are very heavy and slow to use, and I know many people like me who just can&#8217;t live without Vim and want to use Vim for all type of text editing they do, whether they are writing code, editing configuration files or may be creating simple text files.</p><script type="text/javascript">google_ad_client = "ca-pub-7200694027328827";
+/* HameedInPost */
+google_ad_slot = "0066418890";
+google_ad_width = 468;
+google_ad_height = 60;</script> <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script><p>Recently I posted a <a
+href="http://hameedullah.com/vim-as-php-ide.html"  target="_blank">screenshot</a> of my Vim editor and got a lot of emails that how did I setup Vim that way. So, I hope this howto will be easy enough for everyone to follow and setup their Vim as their PHP  IDE. For the sake of simplicity I am assuming you are using Vim on Linux or Linux like system. If you are a windows user then this guide should still work for you, but I might not be able to provide Windows related details where needed.</p><p>Features that we will add or enable in Vim to make it a complete IDE.</p><ul><li>Code Completion</li><li>Tag Lists</li><li>Project Management</li><li>Syntax Highlighting</li><li>Code Checking</li></ul><p>First we need to download following Vim scripts and extract them in our ~/.vim directory.</p><ul><li><a
+href="http://www.vim.org/scripts/script.php?script_id=69" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','www.vim.org']);" target="_blank">Project</a></li><li><a
+href="http://vim.sourceforge.net/scripts/script.php?script_id=273" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','vim.sourceforge.net']);" target="_blank">Taglist</a></li><li><a
+href="http://www.vim.org/scripts/script.php?script_id=42" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','www.vim.org']);" target="_blank">BuffExplorer</a></li></ul><p>Download above scripts one by one and install them. Installing them is easy just unzip them in you .vim directory which is located in your home directory. Now we need to download few files in our .vim/plugin directory. Download the following Vim scripts directly into your .vim/plugin directory.</p><ul><li><a
+href="http://www.vim.org/scripts/script.php?script_id=1355" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','www.vim.org']);" target="_blank">PHP-Doc</a></li><li><a
+href="http://www.vim.org/scripts/script.php?script_id=1873" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','www.vim.org']);" target="_blank">ProjTags</a></li><li><a
+href="http://www.vim.org/scripts/script.php?script_id=2792" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','www.vim.org']);" target="_blank">PerDirVimrc</a></li></ul><p>&nbsp;</p><p>Now that you have installed above scripts, you are almost all set to go. You just need to paste the following content in your .vimrc file which is located in your home directory.</p><div
+class="wp_syntax"><div
+class="code"><pre class="vim" style="font-family:monospace;"><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #adadad; font-style: italic;">&quot;</span>
+<span style="color: #C5A22D;">&quot; ~/.vimrc                                                      &quot;</span>
+<span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #adadad; font-style: italic;">&quot;</span>
+<span style="color: #C5A22D;">&quot;                                                               &quot;</span>
+<span style="color: #C5A22D;">&quot; Version: 0.1                                                  &quot;</span>
+<span style="color: #C5A22D;">&quot;                                                               &quot;</span>
+<span style="color: #C5A22D;">&quot;                                                               &quot;</span>
+<span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #adadad; font-style: italic;">
+&nbsp;
+&quot; Hightlight the ifs and buts</span>
+<span style="color: #804040;">syntax</span> <span style="color: #25BB4D;">on</span><span style="color: #adadad; font-style: italic;">
+&nbsp;
+&quot; Plugins and indentation based on the file type</span>
+<span style="color: #804040;">filetype</span> <span style="color: #25BB4D;">plugin</span> <span style="color: #25BB4D;">indent</span> <span style="color: #25BB4D;">on</span><span style="color: #adadad; font-style: italic;">
+&nbsp;
+&nbsp;
+&quot; Don't remember source of this, i think it was already in my .vimrc</span><span style="color: #adadad; font-style: italic;">
+&quot; Tell vim to remember certain things when we exit</span><span style="color: #adadad; font-style: italic;">
+&quot;  '10 : marks will be remembered for up to 10 previously edited files</span>
+<span style="color: #C5A22D;">&quot;  &quot;</span><span style="color: #000000; font-weight:bold;">100</span> <span style="color: #000000;">:</span> will save up <span style="color: #668080;">to</span> <span style="color: #000000; font-weight:bold;">100</span> <span style="color: #668080;">lines</span> <span style="color: #804040;">for</span> each register<span style="color: #adadad; font-style: italic;">
+&quot;  :5000 : up to 5000 lines of command-line history will be remembered</span><span style="color: #adadad; font-style: italic;">
+&quot;  % : saves and restores the buffer list</span><span style="color: #adadad; font-style: italic;">
+&quot;  n... : where to save the viminfo files</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">viminfo</span>=<span style="color: #C5A22D;">'10,<span style="">\&quot;</span>100,:5000,%,n~/.viminfo
+&nbsp;
+&quot; omnicomplete from: http://vim.wikia.com/wiki/VimTip1386
+set completeopt=longest,menuone
+inoremap &lt;expr&gt; &lt;CR&gt; pumvisible() ? &quot;<span style="">\&lt;</span>C-y&gt;&quot; : &quot;<span style="">\&lt;</span>C-g&gt;u<span style="">\&lt;</span>CR&gt;&quot;
+inoremap &lt;expr&gt; &lt;C-n&gt; pumvisible() ? '</span><span style="color: #000000;">&lt;</span>C<span style="color: #000000;">-</span>n<span style="color: #000000;">&gt;</span><span style="color: #C5A22D;">' :
+  <span style="">\ </span>'</span><span style="color: #000000;">&lt;</span>C<span style="color: #000000;">-</span>n<span style="color: #000000;">&gt;&lt;</span>C<span style="color: #000000;">-</span>r<span style="color: #000000;">&gt;</span>=<span style="color: #25BB4D;">pumvisible</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">?</span> <span style="color: #C5A22D;">&quot;<span style="">\&lt;</span>lt&gt;Down&gt;&quot;</span> <span style="color: #000000;">:</span> <span style="color: #C5A22D;">&quot;&quot;</span><span style="color: #668080;">&lt;CR&gt;</span><span style="color: #C5A22D;">'
+&nbsp;
+&nbsp;
+&quot;###########################
+&quot;##       PHP             ##
+&quot;###########################
+&quot; The php doc plugin
+&quot; source ~/.vim/php-doc.vim
+inoremap &lt;C-P&gt; &lt;ESC&gt;:call PhpDocSingle()&lt;CR&gt;i
+nnoremap &lt;C-P&gt; :call PhpDocSingle()&lt;CR&gt;
+vnoremap &lt;C-P&gt; :call PhpDocRange()&lt;CR&gt;
+&nbsp;
+&quot; run file with PHP CLI (CTRL-M)
+:autocmd FileType php noremap &lt;C-M&gt; :w!&lt;CR&gt;:!/usr/bin/php %&lt;CR&gt;
+&nbsp;
+&quot; PHP parser check (CTRL-L)
+:autocmd FileType php noremap &lt;C-L&gt; :!/usr/bin/php -l %&lt;CR&gt;
+&nbsp;
+&quot; Do use the currently active spell checking for completion though!
+&quot; (I love this feature :-)
+set complete+=kspell
+&nbsp;
+&quot; disable tabs
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+&nbsp;
+&quot; highlt matches
+set hlsearch
+&nbsp;
+&quot; Taken from http://peterodding.com/code/vim/profile/vimrc
+&quot; Make Vim open and close folded text as needed because I can'</span>t be bothered <span style="color: #668080;">to</span><span style="color: #adadad; font-style: italic;">
+&quot; do so myself and wouldn't use text folding at all if it wasn't automatic.</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">foldmethod</span>=marker <span style="color: #668080;">foldopen</span>=all,<span style="color: #25BB4D;">insert</span> <span style="color: #668080;">foldclose</span>=all<span style="color: #adadad; font-style: italic;">
+&nbsp;
+&quot; Enable enhanced command line completion.</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">wildmenu</span> <span style="color: #668080;">wildmode</span>=<span style="color: #668080;">list</span><span style="color: #000000;">:</span>full<span style="color: #adadad; font-style: italic;">
+&nbsp;
+&quot; Ignore these filenames during enhanced command line completion.</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">wildignore</span><span style="color: #000000;">+</span>=<span style="color: #000000;">*.</span>aux,<span style="color: #000000;">*.</span>out,<span style="color: #000000;">*.</span>toc<span style="color: #adadad; font-style: italic;"> &quot; LaTeX intermediate files</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">wildignore</span><span style="color: #000000;">+</span>=<span style="color: #000000;">*.</span>jpg,<span style="color: #000000;">*.</span>bmp,<span style="color: #000000;">*.</span>gif<span style="color: #adadad; font-style: italic;"> &quot; binary images</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">wildignore</span><span style="color: #000000;">+</span>=<span style="color: #000000;">*.</span>luac<span style="color: #adadad; font-style: italic;"> &quot; Lua byte code</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">wildignore</span><span style="color: #000000;">+</span>=<span style="color: #000000;">*.</span>o,<span style="color: #000000;">*.</span>obj,<span style="color: #000000;">*.</span><span style="color: #804040;">exe</span>,<span style="color: #000000;">*.</span>dll,<span style="color: #000000;">*.</span>manifest<span style="color: #adadad; font-style: italic;"> &quot; compiled object files</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">wildignore</span><span style="color: #000000;">+</span>=<span style="color: #000000;">*.</span>pyc<span style="color: #adadad; font-style: italic;"> &quot; Python byte code</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">wildignore</span><span style="color: #000000;">+</span>=<span style="color: #000000;">*.</span><span style="color: #668080;">spl</span><span style="color: #adadad; font-style: italic;"> &quot; compiled spelling word lists</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">wildignore</span><span style="color: #000000;">+</span>=<span style="color: #000000;">*.</span><span style="color: #668080;">sw</span><span style="color: #000000;">?</span><span style="color: #adadad; font-style: italic;"> &quot; Vim swap files</span><span style="color: #adadad; font-style: italic;">
+&nbsp;
+&nbsp;
+&quot; Enable completion dictionaries for PHP buffers.</span>
+<span style="color: #804040;">autocmd</span> <span style="color: #25BB4D;">FileType</span> php <span style="color: #804040;">set</span> <span style="color: #25BB4D;">complete</span><span style="color: #000000;">+</span>=k<span style="color: #000000;">~/.</span>vim<span style="color: #000000;">/</span><span style="color: #668080;">dict</span><span style="color: #000000;">/</span>PHP<span style="color: #000000;">.</span><span style="color: #668080;">dict</span><span style="color: #adadad; font-style: italic;">
+&nbsp;
+&quot; PHP Autocomplete</span>
+<span style="color: #804040;">autocmd</span> <span style="color: #25BB4D;">FileType</span> php <span style="color: #804040;">set</span> <span style="color: #668080;">omnifunc</span>=phpcomplete#CompletePHP
+<span style="color: #804040;">set</span> <span style="color: #668080;">ofu</span>=syntaxcomplete#Complete<span style="color: #adadad; font-style: italic;">
+&nbsp;
+&quot; You might also find this useful</span><span style="color: #adadad; font-style: italic;">
+&quot; PHP Generated Code Highlights (HTML &amp; SQL)                                              </span>
+<span style="color: #804040;">let</span> php_sql_query=<span style="color: #000000; font-weight:bold;">1</span>
+<span style="color: #804040;">let</span> php_htmlInStrings=<span style="color: #000000; font-weight:bold;">1</span>
+<span style="color: #804040;">let</span> g<span style="color: #000000;">:</span>php_folding=<span style="color: #000000; font-weight:bold;">2</span>
+<span style="color: #804040;">set</span> <span style="color: #668080;">foldmethod</span>=<span style="color: #804040;">syntax</span><span style="color: #adadad; font-style: italic;">
+&nbsp;
+&quot; --------------------</span><span style="color: #adadad; font-style: italic;">
+&quot; Project</span><span style="color: #adadad; font-style: italic;">
+&quot; --------------------</span>
+<span style="color: #804040;">map</span> <span style="color: #000000;">&lt;</span>A<span style="color: #000000;">-</span>S<span style="color: #000000;">-</span>p<span style="color: #000000;">&gt;</span> <span style="color: #000000;">:</span>Project<span style="color: #000000;">&lt;</span>CR<span style="color: #000000;">&gt;</span>
+<span style="color: #804040;">map</span> <span style="color: #000000;">&lt;</span>A<span style="color: #000000;">-</span>S<span style="color: #000000;">-</span>o<span style="color: #000000;">&gt;</span> <span style="color: #000000;">:</span>Project<span style="color: #000000;">&lt;</span>CR<span style="color: #000000;">&gt;:</span>redraw<span style="color: #000000;">&lt;</span>CR<span style="color: #000000;">&gt;/</span>
+nmap <span style="color: #668080;">&lt;silent&gt;</span> <span style="color: #668080;">&lt;F3&gt;</span> <span style="color: #000000;">&lt;</span>Plug<span style="color: #000000;">&gt;</span>ToggleProject<span style="color: #adadad; font-style: italic;">
+&quot;let g:proj_window_width = 30</span><span style="color: #adadad; font-style: italic;">
+&quot;let g:proj_window_increment = 150</span>
+&nbsp;
+<span style="color: #804040;">nnoremap</span> <span style="color: #668080;">&lt;silent&gt;</span> <span style="color: #668080;">&lt;F8&gt;</span> <span style="color: #000000;">:</span>TlistToggle<span style="color: #000000;">&lt;</span>CR<span style="color: #000000;">&gt;</span>
+<span style="color: #804040;">let</span> Tlist_Exit_OnlyWindow = <span style="color: #000000; font-weight:bold;">1</span><span style="color: #adadad; font-style: italic;">     &quot; exit if taglist is last window open</span>
+<span style="color: #804040;">let</span> Tlist_Show_One_File = <span style="color: #000000; font-weight:bold;">1</span><span style="color: #adadad; font-style: italic;">       &quot; Only show tags for current buffer</span>
+<span style="color: #804040;">let</span> Tlist_Enable_Fold_Column = <span style="color: #000000; font-weight:bold;">0</span><span style="color: #adadad; font-style: italic;">  &quot; no fold column (only showing one file)</span>
+<span style="color: #804040;">let</span> tlist_sql_settings = <span style="color: #C5A22D;">'sql;P:package;t:table'</span>
+<span style="color: #804040;">let</span> tlist_ant_settings = <span style="color: #C5A22D;">'ant;p:Project;r:Property;t:Target'</span><span style="color: #adadad; font-style: italic;">
+&nbsp;
+&quot; auto change directory from: http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file</span>
+<span style="color: #804040;">autocmd</span> <span style="color: #25BB4D;">BufEnter</span> <span style="color: #000000;">*</span> <span style="color: #804040;">if</span> <span style="color: #25BB4D;">expand</span><span style="color: #000000;">&#40;</span><span style="color: #C5A22D;">&quot;%:p:h&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">!~</span> <span style="color: #C5A22D;">'^/tmp'</span> <span style="color: #000000;">|</span> lcd <span style="color: #000000;">%:</span>p<span style="color: #000000;">:</span>h <span style="color: #000000;">|</span> <span style="color: #804040;">endif</span><span style="color: #adadad; font-style: italic;">
+&nbsp;
+&quot; when we reload, tell vim to restore the cursor to the saved position</span>
+<span style="color: #804040;">augroup</span> JumpCursorOnEdit
+ <span style="color: #804040;">au</span><span style="color: #000000;">!</span>
+ <span style="color: #804040;">autocmd</span> <span style="color: #25BB4D;">BufReadPost</span> <span style="color: #000000;">*</span>
+ \ <span style="color: #804040;">if</span> <span style="color: #25BB4D;">expand</span><span style="color: #000000;">&#40;</span><span style="color: #C5A22D;">&quot;&lt;afile&gt;:p:h&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">!</span>=<span style="color: #000000;">?</span> <span style="color: #000000;">$</span>TEMP <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">if</span> <span style="color: #25BB4D;">line</span><span style="color: #000000;">&#40;</span><span style="color: #C5A22D;">&quot;'<span style="">\&quot;</span>&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&gt;</span> <span style="color: #000000; font-weight:bold;">1</span> <span style="color: #000000;">&amp;&amp;</span> <span style="color: #25BB4D;">line</span><span style="color: #000000;">&#40;</span><span style="color: #C5A22D;">&quot;'<span style="">\&quot;</span>&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&lt;</span>= <span style="color: #25BB4D;">line</span><span style="color: #000000;">&#40;</span><span style="color: #C5A22D;">&quot;$&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">let</span> JumpCursorOnEdit_foo = <span style="color: #25BB4D;">line</span><span style="color: #000000;">&#40;</span><span style="color: #C5A22D;">&quot;'<span style="">\&quot;</span>&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">let</span> b<span style="color: #000000;">:</span>doopenfold = <span style="color: #000000; font-weight:bold;">1</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">if</span> <span style="color: #000000;">&#40;</span><span style="color: #25BB4D;">foldlevel</span><span style="color: #000000;">&#40;</span>JumpCursorOnEdit_foo<span style="color: #000000;">&#41;</span> <span style="color: #000000;">&gt;</span> <span style="color: #25BB4D;">foldlevel</span><span style="color: #000000;">&#40;</span>JumpCursorOnEdit_foo <span style="color: #000000;">-</span> <span style="color: #000000; font-weight:bold;">1</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">let</span> JumpCursorOnEdit_foo = JumpCursorOnEdit_foo <span style="color: #000000;">-</span> <span style="color: #000000; font-weight:bold;">1</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">let</span> b<span style="color: #000000;">:</span>doopenfold = <span style="color: #000000; font-weight:bold;">2</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">endif</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">exe</span> JumpCursorOnEdit_foo <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">endif</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">endif</span>
+ <span style="color: #C5A22D;">&quot; Need to postpone using &quot;</span>zv<span style="color: #adadad; font-style: italic;">&quot; until after reading the modelines.</span>
+ <span style="color: #804040;">autocmd</span> <span style="color: #25BB4D;">BufWinEnter</span> <span style="color: #000000;">*</span>
+ \ <span style="color: #804040;">if</span> <span style="color: #25BB4D;">exists</span><span style="color: #000000;">&#40;</span><span style="color: #C5A22D;">&quot;b:doopenfold&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">exe</span> <span style="color: #C5A22D;">&quot;normal zv&quot;</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">if</span><span style="color: #000000;">&#40;</span>b<span style="color: #000000;">:</span>doopenfold <span style="color: #000000;">&gt;</span> <span style="color: #000000; font-weight:bold;">1</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">exe</span> <span style="color: #C5A22D;">&quot;+&quot;</span><span style="color: #000000;">.</span>1 <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">endif</span> <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">unlet</span> b<span style="color: #000000;">:</span>doopenfold <span style="color: #000000;">|</span>
+ \ <span style="color: #804040;">endif</span>
+<span style="color: #804040;">augroup</span> END<span style="color: #adadad; font-style: italic;">
+&nbsp;
+&quot; PHP code sniffer</span><span style="color: #adadad; font-style: italic;">
+&quot; If code sniffer is installed you can run it on current php file by running </span><span style="color: #adadad; font-style: italic;">
+&quot; :Phpcs</span>
+<span style="color: #804040;">function</span><span style="color: #000000;">!</span> RunPhpcs<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>
+    <span style="color: #804040;">let</span> l<span style="color: #000000;">:</span>filename=<span style="color: #000000;">@%</span>
+    <span style="color: #804040;">let</span> l<span style="color: #000000;">:</span>phpcs_output=<span style="color: #25BB4D;">system</span><span style="color: #000000;">&#40;</span><span style="color: #C5A22D;">'phpcs --report=csv --standard=YMC '</span><span style="color: #000000;">.</span>l<span style="color: #000000;">:</span>filename<span style="color: #000000;">&#41;</span><span style="color: #adadad; font-style: italic;">
+&quot;    echo l:phpcs_output</span>
+    <span style="color: #804040;">let</span> l<span style="color: #000000;">:</span>phpcs_list=<span style="color: #25BB4D;">split</span><span style="color: #000000;">&#40;</span>l<span style="color: #000000;">:</span>phpcs_output, <span style="color: #C5A22D;">&quot;<span style="">\n</span>&quot;</span><span style="color: #000000;">&#41;</span>
+    <span style="color: #804040;">unlet</span> l<span style="color: #000000;">:</span>phpcs_list<span style="color: #000000;">&#91;</span><span style="color: #000000; font-weight:bold;">0</span><span style="color: #000000;">&#93;</span>
+    cexpr l<span style="color: #000000;">:</span>phpcs_list
+    cwindow
+endfunction
+&nbsp;
+<span style="color: #804040;">set</span> <span style="color: #668080;">errorformat</span><span style="color: #000000;">+</span>=\<span style="color: #C5A22D;">&quot;%f<span style="">\&quot;</span><span style="">\\</span>,%l<span style="">\\</span>,%c<span style="">\\</span>,%t%*[a-zA-Z]<span style="">\\</span>,<span style="">\&quot;</span>%m<span style="">\&quot;</span>
+command! Phpcs execute RunPhpcs()</span></pre></div></div><p>Thats it, now you are all set to go. Following are the few quick commands to get you started to use all the features you have just enabled in your Vim IDE.</p><p><strong>F3:</strong> To start using project manager.<br
+/> <strong>\C:</strong> After starting project manager this key combination will allow you to add new project.<br
+/> <strong>F8:</strong> Tag list window<br
+/> <strong>Ctrl+L:</strong> To run the syntax checking on your php file<br
+/> <strong>Ctrl+P:</strong> On any class/function definition to add php doc strings<br
+/> <strong>&#8220;:PhpCs&#8221;:</strong> To run PHP Code sniffer on your php script. (this requires code sniffer to be installed).<br
+/> <strong>Ctrl+n:</strong> On any word to use Auto completion feature of PHP.</p><p>I will soon write another howto to explain how can you use further features of your IDE. You should subscribe to the <a
+href="http://hameedullah.com/feed/"  target="_blank">feed</a> or follow me on <a
+href="http://twitter.com/hameedullah" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','twitter.com']);" target="_blank">twitter</a> to stay updated. <img
+src='http://hameedullah.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /></p></div><div
+class="post-meta clearfix"><ul><li
+class="author">By Hameedullah Khan |</li><li
+class="category"><a
+href="http://hameedullah.com/category/programming-web-development/php-programming" title="View all posts in PHP" rel="category tag">PHP</a></li></ul></div></div><div
+id="comments"><h2 class="comment-head">No Response to Howto Setup Vim IDE for PHP Development</h2><p
+style="padding-top:10px; ">Still quiet here.</p><div
+id="respond"><h2 class="comment-head">Leave a Response</h2><div
+class="cancel-comment-reply"> <small><a
+rel="nofollow" id="cancel-comment-reply-link" href="/howto-setup-vim-ide-for-php-development.html#respond" style="display:none;">Click here to cancel reply.</a></small></div><div
+class="respond-form clearfix"><form
+action="http://hameedullah.com/wp-comments-post.php" method="post" id="comment-form"><p><input
+class="author" onFocus="this.style.backgroundColor='#f5f5f5'" onBlur="this.style.backgroundColor='#fff'" type="text" name="author" id="author" value="" size="22" tabindex="1" /></p><p><input
+class="email" onFocus="this.style.backgroundColor='#f5f5f5'" onBlur="this.style.backgroundColor='#fff'" type="text" name="email" id="email" value="" size="22" tabindex="2" /></p><p><input
+class="url" onFocus="this.style.backgroundColor='#f5f5f5'" onBlur="this.style.backgroundColor='#fff'" type="text" name="url" id="url" value="" size="22" tabindex="3" /></p><p><textarea onFocus="this.style.backgroundColor='#f5f5f5'" onBlur="this.style.backgroundColor='#fff'" name="comment" id="comment" tabindex="4"></textarea></p> <input
+name="submit" type="submit" class="btn blue submit-btn" tabindex="5" value="Submit Comment" /><input
+type="hidden" name="comment_post_ID" value="731" /> <input
+type='hidden' name='comment_post_ID' value='731' id='comment_post_ID' /> <input
+type='hidden' name='comment_parent' id='comment_parent' value='0' /><p
+style="display: none;"><input
+type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="a16d09714a" /></p><input
+type="hidden" name="cl_type" /><input
+type="hidden" name="choice_id" /><input
+type="hidden" name="request_id" /><input
+type="hidden" name="cl_post_title" id="cl_post_title"/><input
+type="hidden" name="cl_post_url" id="cl_post_url"/><input
+type="hidden" name="cl_memberid" id="cl_memberid"/><div
+id="commentluv"><input
+type="checkbox" id="doluv" name="doluv" checked="checked" style="width:25px;"></input><span
+id="mylastpost" style="clear: both"><a
+href="http://comluv.com" target="_blank"><img
+src="http://pluginfiles.hameedullah.com/wp-content/plugins/commentluv/images/CL91_White.gif" border="0" alt="CommentLuv Enabled" title="CommentLuv Enabled"/></a></span><span
+id="showmorespan" style="width: 30px; height: 15px; cursor: pointer;"><img
+class="clarrow" id="showmore" src="http://pluginfiles.hameedullah.com/wp-content/plugins/commentluv/images/down-arrow.gif" alt="show more" style="display:none;"/></span></div><div
+id="lastposts" style="display: none;"></div><p
+style="clear: both;" class="subscribe-to-comments"> <input
+type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" /> <label
+for="subscribe">Notify me of followup comments via e-mail</label></p><p><input
+type="hidden" id="comment_reply_ID" name="comment_reply_ID" value="0" /><input
+type="hidden" id="comment_reply_dp" name="comment_reply_dp" value="0" /></p><div
+id="cancel_reply" style="display:none;"><a
+href="javascript:void(0)" onclick="movecfm(null,0,1,null);" style="color:red;">Click to cancel reply</a></div><script type="text/javascript">/*  */
+var commentformid = "comment-form";
+var USERINFO = false;
+var atreply = "none";
+/*  */</script> <script type="text/javascript" src="http://hameedullah.com/wp-content/plugins/wordpress-thread-comment/wp-thread-comment.js.php?jsver=common"></script> </form></div></div></div></div><div
+id="sidebar" class="grid_4"><div
+class="widget"><div
+class="widget-body"><h3 style="text-align: center; color:#B0483B;">Join 1,805+ readers..</h3><h3 class="subheading">Subscribe via Email</h3><form
+id="subsform" method="post" action="http://feedburner.google.com/fb/a/mailverify"> <input
+type="text" class="inputbox" name="email" value="Type your email address and hit Enter" onblur="if (this.value == '') {this.value = 'Type your email address and hit Enter';}"  onfocus="if (this.value == 'Type your email address and hit Enter') {this.value = '';}"/><input
+type="hidden" value="Hameedullah" name="uri"/><input
+type="hidden" name="loc" value="en_US"/></form><h3 style="padding-top: 10px;" class="subheading">More Subscription Options</h3><div
+style="text-align:center;"><div
+style="float: left; padding: 0 20px;"> <a
+href="http://twitter.com/hameedullah" target="_blank"><img
+src="http://hameedullah.com/wp-content/themes/h/images/twitter_bird.png" alt="RSS Feed Subscription" border="0" /></a> <br
+/> Follow On Twitter</div><div> <a
+href="http://hameedullah.com/feed/" target="_blank"><img
+src="http://hameedullah.com/wp-content/themes/h/images/rss_feed_icon.png" alt="RSS Feed Subscription" border="0" width="100" height="100" /></a><br
+/> via RSS</div></div><div
+style="clear: both;"></div></div><div
+class="widget-foot"></div></div> <script type="text/javascript">google_ad_client = "ca-pub-7200694027328827";
+/* HameedullahSidebar */
+google_ad_slot = "0717433727";
+google_ad_width = 250;
+google_ad_height = 250;</script> <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script> <div
+class="widget"><div
+class="widget-body"><h3>Search</h3><form
+id="searchform" method="get" action="http://hameedullah.com"> <input
+type="text" name="s" id="s" class="search_term" value="Type in keyword and hit Enter..." onblur="if (this.value == '') {this.value = 'Type in keyword and hit Enter...';}"  onfocus="if (this.value == 'Type in keyword and hit Enter...') {this.value = '';}" /></form></div><div
+class="widget-foot"></div></div><div
+class="widget"><div
+class="widget-body"><h3>Translator</h3><div
+id="translation_bar"><map
+id="gltr_flags_map" name="gltr_flags_map"><area
+shape='rect' coords='0,0,16,11' href='http://hameedullah.com/howto-setup-vim-ide-for-php-development.html' id='flag_en'   title='English'/><area
+shape='rect' coords='20,0,36,11' href='http://hameedullah.com/it/howto-setup-vim-ide-for-php-development.html' id='flag_it'   title='Italian'/><area
+shape='rect' coords='40,0,56,11' href='http://hameedullah.com/ko/howto-setup-vim-ide-for-php-development.html' id='flag_ko'   title='Korean'/><area
+shape='rect' coords='60,0,76,11' href='http://hameedullah.com/zh-CN/howto-setup-vim-ide-for-php-development.html' id='flag_zh-CN'   title='Chinese (Simplified)'/><area
+shape='rect' coords='80,0,96,11' href='http://hameedullah.com/zh-TW/howto-setup-vim-ide-for-php-development.html' id='flag_zh-TW'   title='Chinese (Traditional)'/><area
+shape='rect' coords='100,0,116,11' href='http://hameedullah.com/pt/howto-setup-vim-ide-for-php-development.html' id='flag_pt'   title='Portuguese'/><area
+shape='rect' coords='120,0,136,11' href='http://hameedullah.com/de/howto-setup-vim-ide-for-php-development.html' id='flag_de'   title='German'/><area
+shape='rect' coords='140,0,156,11' href='http://hameedullah.com/fr/howto-setup-vim-ide-for-php-development.html' id='flag_fr'   title='French'/><area
+shape='rect' coords='160,0,176,11' href='http://hameedullah.com/es/howto-setup-vim-ide-for-php-development.html' id='flag_es'   title='Spanish'/><area
+shape='rect' coords='180,0,196,11' href='http://hameedullah.com/ja/howto-setup-vim-ide-for-php-development.html' id='flag_ja'   title='Japanese'/><area
+shape='rect' coords='200,0,216,11' href='http://hameedullah.com/ar/howto-setup-vim-ide-for-php-development.html' id='flag_ar'   title='Arabic'/><area
+shape='rect' coords='220,0,236,11' href='http://hameedullah.com/ru/howto-setup-vim-ide-for-php-development.html' id='flag_ru'   title='Russian'/><area
+shape='rect' coords='240,0,256,11' href='http://hameedullah.com/el/howto-setup-vim-ide-for-php-development.html' id='flag_el'   title='Greek'/><area
+shape='rect' coords='260,0,276,11' href='http://hameedullah.com/nl/howto-setup-vim-ide-for-php-development.html' id='flag_nl'   title='Dutch'/><area
+shape='rect' coords='0,15,16,26' href='http://hameedullah.com/bg/howto-setup-vim-ide-for-php-development.html' id='flag_bg'   title='Bulgarian'/><area
+shape='rect' coords='20,15,36,26' href='http://hameedullah.com/cs/howto-setup-vim-ide-for-php-development.html' id='flag_cs'   title='Czech'/><area
+shape='rect' coords='40,15,56,26' href='http://hameedullah.com/hr/howto-setup-vim-ide-for-php-development.html' id='flag_hr'   title='Croatian'/><area
+shape='rect' coords='60,15,76,26' href='http://hameedullah.com/da/howto-setup-vim-ide-for-php-development.html' id='flag_da'   title='Danish'/><area
+shape='rect' coords='80,15,96,26' href='http://hameedullah.com/fi/howto-setup-vim-ide-for-php-development.html' id='flag_fi'   title='Finnish'/><area
+shape='rect' coords='100,15,116,26' href='http://hameedullah.com/hi/howto-setup-vim-ide-for-php-development.html' id='flag_hi'   title='Hindi'/><area
+shape='rect' coords='120,15,136,26' href='http://hameedullah.com/pl/howto-setup-vim-ide-for-php-development.html' id='flag_pl'   title='Polish'/><area
+shape='rect' coords='140,15,156,26' href='http://hameedullah.com/ro/howto-setup-vim-ide-for-php-development.html' id='flag_ro'   title='Romanian'/><area
+shape='rect' coords='160,15,176,26' href='http://hameedullah.com/sv/howto-setup-vim-ide-for-php-development.html' id='flag_sv'   title='Swedish'/><area
+shape='rect' coords='180,15,196,26' href='http://hameedullah.com/no/howto-setup-vim-ide-for-php-development.html' id='flag_no'   title='Norwegian'/><area
+shape='rect' coords='200,15,216,26' href='http://hameedullah.com/ca/howto-setup-vim-ide-for-php-development.html' id='flag_ca'   title='Catalan'/><area
+shape='rect' coords='220,15,236,26' href='http://hameedullah.com/tl/howto-setup-vim-ide-for-php-development.html' id='flag_tl'   title='Filipino'/><area
+shape='rect' coords='240,15,256,26' href='http://hameedullah.com/iw/howto-setup-vim-ide-for-php-development.html' id='flag_iw'   title='Hebrew'/><area
+shape='rect' coords='260,15,276,26' href='http://hameedullah.com/id/howto-setup-vim-ide-for-php-development.html' id='flag_id'   title='Indonesian'/><area
+shape='rect' coords='0,30,16,41' href='http://hameedullah.com/lv/howto-setup-vim-ide-for-php-development.html' id='flag_lv'   title='Latvian'/><area
+shape='rect' coords='20,30,36,41' href='http://hameedullah.com/lt/howto-setup-vim-ide-for-php-development.html' id='flag_lt'   title='Lithuanian'/><area
+shape='rect' coords='40,30,56,41' href='http://hameedullah.com/sr/howto-setup-vim-ide-for-php-development.html' id='flag_sr'   title='Serbian'/><area
+shape='rect' coords='60,30,76,41' href='http://hameedullah.com/sk/howto-setup-vim-ide-for-php-development.html' id='flag_sk'   title='Slovak'/><area
+shape='rect' coords='80,30,96,41' href='http://hameedullah.com/sl/howto-setup-vim-ide-for-php-development.html' id='flag_sl'   title='Slovenian'/><area
+shape='rect' coords='100,30,116,41' href='http://hameedullah.com/uk/howto-setup-vim-ide-for-php-development.html' id='flag_uk'   title='Ukrainian'/><area
+shape='rect' coords='120,30,136,41' href='http://hameedullah.com/vi/howto-setup-vim-ide-for-php-development.html' id='flag_vi'   title='Vietnamese'/><area
+shape='rect' coords='140,30,156,41' href='http://hameedullah.com/sq/howto-setup-vim-ide-for-php-development.html' id='flag_sq'   title='Albanian'/><area
+shape='rect' coords='160,30,176,41' href='http://hameedullah.com/et/howto-setup-vim-ide-for-php-development.html' id='flag_et'   title='Estonian'/><area
+shape='rect' coords='180,30,196,41' href='http://hameedullah.com/gl/howto-setup-vim-ide-for-php-development.html' id='flag_gl'   title='Galician'/><area
+shape='rect' coords='200,30,216,41' href='http://hameedullah.com/mt/howto-setup-vim-ide-for-php-development.html' id='flag_mt'   title='Maltese'/><area
+shape='rect' coords='220,30,236,41' href='http://hameedullah.com/th/howto-setup-vim-ide-for-php-development.html' id='flag_th'   title='Thai'/><area
+shape='rect' coords='240,30,256,41' href='http://hameedullah.com/tr/howto-setup-vim-ide-for-php-development.html' id='flag_tr'   title='Turkish'/><area
+shape='rect' coords='260,30,276,41' href='http://hameedullah.com/hu/howto-setup-vim-ide-for-php-development.html' id='flag_hu'   title='Hungarian'/><area
+shape='rect' coords='0,45,16,56' href='http://hameedullah.com/be/howto-setup-vim-ide-for-php-development.html' id='flag_be'   title='Belarus'/><area
+shape='rect' coords='20,45,36,56' href='http://hameedullah.com/ga/howto-setup-vim-ide-for-php-development.html' id='flag_ga'   title='Irish'/><area
+shape='rect' coords='40,45,56,56' href='http://hameedullah.com/is/howto-setup-vim-ide-for-php-development.html' id='flag_is'   title='Icelandic'/><area
+shape='rect' coords='60,45,76,56' href='http://hameedullah.com/mk/howto-setup-vim-ide-for-php-development.html' id='flag_mk'   title='Macedonian'/><area
+shape='rect' coords='80,45,96,56' href='http://hameedullah.com/ms/howto-setup-vim-ide-for-php-development.html' id='flag_ms'   title='Malay'/><area
+shape='rect' coords='100,45,116,56' href='http://hameedullah.com/fa/howto-setup-vim-ide-for-php-development.html' id='flag_fa'   title='Persian'/></map><img
+style='border:0px;' src='http://hameedullah.com/wp-content/plugins/global-translator/gltr_image_map.png' usemap='#gltr_flags_map'/></div><div
+id="transl_sign"><a
+style="font-size:9px;" href="http://www.nothing2hide.net">By N2H</a></div></div><div
+class="widget-foot"></div></div><div
+class="widget"><div
+class="widget-body"><h3>Categories</h3><ul><li
+class="cat-item cat-item-101"><a
+href="http://hameedullah.com/category/amazon-web-services" title="View all posts filed under Amazon Web Services">Amazon Web Services</a></li><li
+class="cat-item cat-item-203"><a
+href="http://hameedullah.com/category/programming-web-development/android" title="View all posts filed under Android">Android</a></li><li
+class="cat-item cat-item-95"><a
+href="http://hameedullah.com/category/apple" title="View all posts filed under Apple">Apple</a></li><li
+class="cat-item cat-item-43"><a
+href="http://hameedullah.com/category/blogging" title="View all posts filed under Blogging">Blogging</a></li><li
+class="cat-item cat-item-114"><a
+href="http://hameedullah.com/category/google/buzz" title="View all posts filed under Buzz">Buzz</a></li><li
+class="cat-item cat-item-155"><a
+href="http://hameedullah.com/category/programming-web-development/django" title="View all posts filed under Django">Django</a></li><li
+class="cat-item cat-item-11"><a
+href="http://hameedullah.com/category/facebook" title="View all posts filed under Facebook">Facebook</a></li><li
+class="cat-item cat-item-127"><a
+href="http://hameedullah.com/category/featured" title="Category to contain featured posts">Featured</a></li><li
+class="cat-item cat-item-21"><a
+href="http://hameedullah.com/category/google" title="View all posts filed under Google">Google</a></li><li
+class="cat-item cat-item-156"><a
+href="http://hameedullah.com/category/programming-web-development/google-app-engine" title="View all posts filed under Google App Engine">Google App Engine</a></li><li
+class="cat-item cat-item-194"><a
+href="http://hameedullah.com/category/programming-web-development/html-5" title="View all posts filed under Html 5">Html 5</a></li><li
+class="cat-item cat-item-141"><a
+href="http://hameedullah.com/category/apple/ipad-apple" title="View all posts filed under iPad">iPad</a></li><li
+class="cat-item cat-item-157"><a
+href="http://hameedullah.com/category/programming-web-development/oauth" title="View all posts filed under OAuth">OAuth</a></li><li
+class="cat-item cat-item-148"><a
+href="http://hameedullah.com/category/programming-web-development/php-programming" title="View all posts filed under PHP">PHP</a></li><li
+class="cat-item cat-item-151"><a
+href="http://hameedullah.com/category/programming-web-development/python" title="View all posts filed under Python">Python</a></li><li
+class="cat-item cat-item-158"><a
+href="http://hameedullah.com/category/programming-web-development/rails" title="View all posts filed under Rails">Rails</a></li><li
+class="cat-item cat-item-159"><a
+href="http://hameedullah.com/category/programming-web-development/ruby" title="View all posts filed under Ruby">Ruby</a></li><li
+class="cat-item cat-item-15"><a
+href="http://hameedullah.com/category/twitter" title="View all posts filed under Twitter">Twitter</a></li><li
+class="cat-item cat-item-31"><a
+href="http://hameedullah.com/category/programming-web-development/wordpress" title="View all posts filed under Wordpress">Wordpress</a></li></ul></div><div
+class="widget-foot"></div></div><div
+class="widget"><div
+class="widget-body"><h3>Recent Posts</h3><ul><li><a
+href="http://hameedullah.com/howto-setup-vim-ide-for-php-development.html" title="Howto Setup Vim IDE for PHP Development">Howto Setup Vim IDE for PHP Development</a></li><li><a
+href="http://hameedullah.com/develop-your-first-android-application-in-python.html" title="Develop Your First Android Application in Python">Develop Your First Android Application in Python</a></li><li><a
+href="http://hameedullah.com/vim-as-php-ide.html" title="Vim as PHP IDE">Vim as PHP IDE</a></li><li><a
+href="http://hameedullah.com/howto-enable-html5-offline-cache-for-your-web-site.html" title="Howto Enable HTML5 Offline Cache For Your Web Site">Howto Enable HTML5 Offline Cache For Your Web Site</a></li><li><a
+href="http://hameedullah.com/the-zen-of-python.html" title="The Zen of Python">The Zen of Python</a></li></ul></div><div
+class="widget-foot"></div></div><div
+class="widget"><div
+class="widget-body"><h3>Tags</h3><div
+class="tagcloud"><a
+href='http://hameedullah.com/tag/addicted' class='tag-link-14' title='1 topic' style='font-size: 8pt;'>addicted</a> <a
+href='http://hameedullah.com/tag/amazon' class='tag-link-100' title='2 topics' style='font-size: 10.625pt;'>Amazon</a> <a
+href='http://hameedullah.com/tag/apple' class='tag-link-95' title='8 topics' style='font-size: 17.479166666667pt;'>Apple</a> <a
+href='http://hameedullah.com/tag/blog' class='tag-link-44' title='5 topics' style='font-size: 15pt;'>blog</a> <a
+href='http://hameedullah.com/tag/blogger' class='tag-link-63' title='2 topics' style='font-size: 10.625pt;'>blogger</a> <a
+href='http://hameedullah.com/tag/blogging' class='tag-link-43' title='8 topics' style='font-size: 17.479166666667pt;'>Blogging</a> <a
+href='http://hameedullah.com/tag/buzz' class='tag-link-114' title='4 topics' style='font-size: 13.833333333333pt;'>Buzz</a> <a
+href='http://hameedullah.com/tag/development' class='tag-link-165' title='3 topics' style='font-size: 12.375pt;'>development</a> <a
+href='http://hameedullah.com/tag/django' class='tag-link-155' title='7 topics' style='font-size: 16.75pt;'>Django</a> <a
+href='http://hameedullah.com/tag/facebook' class='tag-link-11' title='6 topics' style='font-size: 16.020833333333pt;'>Facebook</a> <a
+href='http://hameedullah.com/tag/facebook-social-networking' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>Facebook. social networking</a> <a
+href='http://hameedullah.com/tag/google' class='tag-link-21' title='14 topics' style='font-size: 20.833333333333pt;'>Google</a> <a
+href='http://hameedullah.com/tag/google-app-engine' class='tag-link-156' title='5 topics' style='font-size: 15pt;'>Google App Engine</a> <a
+href='http://hameedullah.com/tag/guido-van-rossum' class='tag-link-170' title='2 topics' style='font-size: 10.625pt;'>Guido van Rossum</a> <a
+href='http://hameedullah.com/tag/howto' class='tag-link-42' title='2 topics' style='font-size: 10.625pt;'>howto</a> <a
+href='http://hameedullah.com/tag/html-5-2' class='tag-link-195' title='1 topic' style='font-size: 8pt;'>HTML 5</a> <a
+href='http://hameedullah.com/tag/ipad' class='tag-link-106' title='7 topics' style='font-size: 16.75pt;'>iPad</a> <a
+href='http://hameedullah.com/tag/iphone' class='tag-link-99' title='2 topics' style='font-size: 10.625pt;'>iPhone</a> <a
+href='http://hameedullah.com/tag/iphone-os' class='tag-link-137' title='2 topics' style='font-size: 10.625pt;'>iPhone OS</a> <a
+href='http://hameedullah.com/tag/jailbreak' class='tag-link-132' title='3 topics' style='font-size: 12.375pt;'>Jailbreak</a> <a
+href='http://hameedullah.com/tag/like' class='tag-link-71' title='2 topics' style='font-size: 10.625pt;'>like</a> <a
+href='http://hameedullah.com/tag/oauth' class='tag-link-157' title='3 topics' style='font-size: 12.375pt;'>OAuth</a> <a
+href='http://hameedullah.com/tag/php' class='tag-link-33' title='5 topics' style='font-size: 15pt;'>php</a> <a
+href='http://hameedullah.com/tag/plugins' class='tag-link-56' title='2 topics' style='font-size: 10.625pt;'>plugins</a> <a
+href='http://hameedullah.com/tag/python' class='tag-link-151' title='11 topics' style='font-size: 19.375pt;'>Python</a> <a
+href='http://hameedullah.com/tag/rails' class='tag-link-158' title='2 topics' style='font-size: 10.625pt;'>Rails</a> <a
+href='http://hameedullah.com/tag/rails-2-1' class='tag-link-192' title='3 topics' style='font-size: 12.375pt;'>rails 2.1</a> <a
+href='http://hameedullah.com/tag/rails-tutorial' class='tag-link-177' title='2 topics' style='font-size: 10.625pt;'>rails tutorial</a> <a
+href='http://hameedullah.com/tag/readers' class='tag-link-58' title='2 topics' style='font-size: 10.625pt;'>readers</a> <a
+href='http://hameedullah.com/tag/ruby' class='tag-link-159' title='3 topics' style='font-size: 12.375pt;'>Ruby</a> <a
+href='http://hameedullah.com/tag/ruby-on-rails' class='tag-link-180' title='3 topics' style='font-size: 12.375pt;'>Ruby on Rails</a> <a
+href='http://hameedullah.com/tag/s3' class='tag-link-102' title='2 topics' style='font-size: 10.625pt;'>s3</a> <a
+href='http://hameedullah.com/tag/security' class='tag-link-37' title='2 topics' style='font-size: 10.625pt;'>security</a> <a
+href='http://hameedullah.com/tag/social-media' class='tag-link-13' title='3 topics' style='font-size: 12.375pt;'>social media</a> <a
+href='http://hameedullah.com/tag/social-networking' class='tag-link-20' title='2 topics' style='font-size: 10.625pt;'>social networking</a> <a
+href='http://hameedullah.com/tag/subscribers' class='tag-link-57' title='2 topics' style='font-size: 10.625pt;'>subscribers</a> <a
+href='http://hameedullah.com/tag/tablet' class='tag-link-96' title='2 topics' style='font-size: 10.625pt;'>tablet</a> <a
+href='http://hameedullah.com/tag/twitter' class='tag-link-15' title='10 topics' style='font-size: 18.791666666667pt;'>Twitter</a> <a
+href='http://hameedullah.com/tag/update' class='tag-link-119' title='2 topics' style='font-size: 10.625pt;'>update</a> <a
+href='http://hameedullah.com/tag/vim' class='tag-link-202' title='2 topics' style='font-size: 10.625pt;'>Vim</a> <a
+href='http://hameedullah.com/tag/web-development' class='tag-link-188' title='4 topics' style='font-size: 13.833333333333pt;'>web development</a> <a
+href='http://hameedullah.com/tag/web-framework' class='tag-link-189' title='2 topics' style='font-size: 10.625pt;'>Web Framework</a> <a
+href='http://hameedullah.com/tag/wordpress' class='tag-link-31' title='17 topics' style='font-size: 22pt;'>Wordpress</a> <a
+href='http://hameedullah.com/tag/wordpress-plugins' class='tag-link-81' title='2 topics' style='font-size: 10.625pt;'>wordpress plugins</a> <a
+href='http://hameedullah.com/tag/writing' class='tag-link-46' title='2 topics' style='font-size: 10.625pt;'>writing</a></div></div><div
+class="widget-foot"></div></div></div></div><div
+id="footer" class="clearfix"><div
+id="fwidget-wrap" class="container_12"><div
+class="fwidget grid_4"><h3>Popular Posts</h3><ul><li><a
+href="http://hameedullah.com/step-by-step-guide-to-use-sign-in-with-twitter-with-django.html" title="Permalink to Step by Step Guide to use Sign in with Twitter with Django">Step by Step Guide to use Sign in with Twitter with Django</a></li><li><a
+href="http://hameedullah.com/how-to-track-adsense-clicks-on-your-wordpress-blog.html" title="Permalink to How to track adsense clicks on your wordpress blog">How to track adsense clicks on your wordpress blog</a></li><li><a
+href="http://hameedullah.com/how-to-install-rails-21-on-ubuntu-in-5-steps.html" title="Permalink to How to install Rails 2.1 on Ubuntu in 5 steps">How to install Rails 2.1 on Ubuntu in 5 steps</a></li><li><a
+href="http://hameedullah.com/how-to-use-oauth-python-twitter.html" title="Permalink to How to use oauth-python-twitter">How to use oauth-python-twitter</a></li><li><a
+href="http://hameedullah.com/5-wordpress-plugins-that-will-increase-your-traffic-exponentially.html" title="Permalink to 5 wordpress plugins that will increase your traffic exponentially">5 wordpress plugins that will increase your traffic exponentially</a></li></ul></div><div
+class="fwidget grid_4"><h3>Archives</h3><ul><li><a
+href='http://hameedullah.com/2011/05' title='May 2011'>May 2011</a></li><li><a
+href='http://hameedullah.com/2011/04' title='April 2011'>April 2011</a></li><li><a
+href='http://hameedullah.com/2011/01' title='January 2011'>January 2011</a></li><li><a
+href='http://hameedullah.com/2010/12' title='December 2010'>December 2010</a></li><li><a
+href='http://hameedullah.com/2010/11' title='November 2010'>November 2010</a></li></ul></div><div
+class="fwidget grid_4"><h3>SUBSCRIBE + FOLLOW</h3><p>Subscribe to our RSS FEED to receive breaking news as well as receive other site updates or alternatively, feel free to connect with us.</p> <a
+href="http://hameedullah.com/feed" class="sconnect"><img
+src="http://static.hameedullah.com/wp-content/themes/h/images/rss_32.png" border="0" width="32" height="32" /></a> <a
+href="http://feedburner.google.com/fb/a/mailverify?uri=Hameedullah&loc=en_US" class="sconnect"><img
+src="http://static.hameedullah.com/wp-content/themes/h/images/email_32.png" border="0" width="32" height="32" /></a> <a
+href="http://twitter.com/hameedullah" class="sconnect"><img
+src="http://static.hameedullah.com/wp-content/themes/h/images/twitter_32.png" border="0" width="32" height="32" /></a> <a
+href="http://facebook.com/hameedullah" class="sconnect"><img
+src="http://static.hameedullah.com/wp-content/themes/h/images/facebook_32.png" border="0" width="32" height="32" /></a> <a
+href="http://digg.com/users/hameedullahkhan" class="sconnect"><img
+src="http://static.hameedullah.com/wp-content/themes/h/images/digg_32.png" border="0" width="32" height="32" /></a> <a
+href="http://delicious.com/hameedullah" class="sconnect"><img
+src="http://static.hameedullah.com/wp-content/themes/h/images/delicious_32.png" border="0" width="32" height="32" /></a></div></div></div><div
+id="copyright"><div
+class="credits container_12 clearfix"><p
+class="powered left">Powerd by <a
+href="http://wordpress.org" title="Wordpress">Wordpress</a> and <a
+href="http://wpcrunchy.com" title="Free & Premium wordpress theme">Wpcrunchy</a></p><p
+class="broughtby right">Designed by <a
+href="http://www.hostreviewgeeks.com/" target="_blank">small business web hosting</a></p></div></div></div><!--stats_footer_test--><script src="http://stats.wordpress.com/e-201119.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'8893649',v:'ext',post:'731'});
+var load_cmc = function(){linktracker_init(8893649,731,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+
+        <script type="text/javascript">
+                $(document).ready(function(){
+                        /*## dropdown navigation ##*/
+                        $('ul.sf-menu').supersubs({ 
+                                minWidth:    12,                                // minimum width of sub-menus in em units 
+                                maxWidth:    27,                                // maximum width of sub-menus in em units 
+                                extraWidth:  1                                  // extra width can ensure lines don't sometimes turn over 
+                                                                                                                                        // due to slight rounding differences and font-family 
+                        }).superfish({ 
+                                delay:       400,                               // delay on mouseout 
+                                animation:   {opacity:'show',height:'show'},    // fade-in and slide-down animation 
+                                speed:       'fast',                            // faster animation speed 
+                                autoArrows:  false,                             // disable generation of arrow mark-up 
+                                dropShadows: false                              // disable drop shadows 
+                        }).children().find('li:first').css('border-top','0px').find('a').css('border-top','0px');
+                        
+                        $('.ft-items').cycle({
+                                fx:'fade',
+                                timeout:3000,
+                                speed:1000,
+                        });
+                        
+                        $('.ft-items').hover(
+                                function () {
+                                        $(this).find('img').fadeTo("fast", 0.5);
+                                        $('.ft-items').cycle('pause');
+                                }, 
+                                function () {
+                                        $(this).find('img').fadeTo("fast", 1);
+                                        $('.ft-items').cycle('resume');
+                                }
+                        );
+                });
+        </script>
+                        <script type="text/javascript">
+                                $(document).ready(function() {
+                                        $('#pagemenu ul').lavaLamp({fx: 'swing', speed: 333,click: function(event, menuItem) {return true;}});
+					$('a.fancyboxed').fancybox();
+                                });
+                        </script>
+</body>
+</html>
+<!-- WP Super Cache is installed but broken. The path to wp-cache-phase1.php in wp-content/advanced-cache.php must be fixed! -->
