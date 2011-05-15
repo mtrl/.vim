@@ -94,7 +94,7 @@ set ofu=syntaxcomplete#Complete
 let php_sql_query=1
 let php_htmlInStrings=1
 let g:php_folding=2
-set foldmethod=syntax
+"set foldmethod=syntax
  
 " --------------------
 " Project
