@@ -6,6 +6,10 @@
 "                                                               "
 "                                                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set default swp directory
+set backupdir=/tmp,.
+set directory=/tmp,.
+
 " Tabbing stuff
 nmap <A-Left> :tabp<CR>
 nmap <A-Right> :tabn<CR>
